@@ -1,8 +1,13 @@
 <h1>Sign Up</h1>
 
+<%=render partial: "application/errors", locals: {errors: @user.errors.full_messages} %>
+
 <%= form_for @user do |f| %>
     <%= f.label :name %><br>
     <%= f.text_field :name %><br><br>
+
+    <%= f.label :email %><br>
+    <%= f.text_field :email %><br><br>
 
     <%= f.label :password %><br>
     <%= f.password_field :password %><br><br>
