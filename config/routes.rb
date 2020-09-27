@@ -16,6 +16,6 @@ Rails.application.routes.draw do
     resources :goals
   end
 
-  
+  resources :entries
 
 end
