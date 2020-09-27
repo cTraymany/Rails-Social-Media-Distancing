@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
     before_action :redirect_if_logged_in, only: [:index]
+    helper_method :logged_in?
 
     def index; end
 
@@ -9,6 +10,7 @@ class ApplicationController < ActionController::Base
 
     def redirect_if_logged_in
         redirect_to users_path if logged_in?
+        # redirect_to users_goals_path if logged_in?
     end
 
     def current_user
