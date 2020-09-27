@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
     before_action :redirect_if_logged_in, only: [:new, :create]
     before_action :require_login, except: [:new, :create]
-    helper_method :current_user
 
     def index
         # delete after adding 'users/goals' as index
@@ -12,8 +11,8 @@ class UsersController < ApplicationController
     end
 
     def create
-        @user = User.new(user_params)
-        if @user.valid?
+        @user = User.create(user_params)
+        if @user.save
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else
