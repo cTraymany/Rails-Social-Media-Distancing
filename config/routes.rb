@@ -3,4 +3,13 @@ Rails.application.routes.draw do
 
   root 'application#index'
 
+  get 'login' => 'sessions#new'
+  get 'signup' => 'users#new'
+
+  post 'login' => 'sessions#create'
+  post 'signup' => 'users#create'
+  post 'logout' => 'sessions#destroy'
+
+  resources :users
+
 end
