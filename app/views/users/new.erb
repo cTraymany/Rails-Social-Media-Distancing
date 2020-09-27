@@ -2,7 +2,7 @@
 
 <%=render partial: "application/errors", locals: {errors: @user.errors.full_messages} %>
 
-<%= form_for @user do |f| %>
+<%= form_with model: @user, url: '/signup', local: true do |f| %>
     <%= f.label :name %><br>
     <%= f.text_field :name %><br><br>
 
@@ -15,5 +15,5 @@
     <%= f.label :password_confirmation %><br>
     <%= f.password_field :password_confirmation %><br><br>
 
-    <%= f.submit %>
+    <%= f.submit 'Sign Up' %>
 <% end %>
