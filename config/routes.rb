@@ -10,9 +10,7 @@ Rails.application.routes.draw do
   post 'signup' => 'users#create'
   post 'logout' => 'sessions#destroy'
 
-  resources :users
-
-  resources :users do
+  resources :users, only: [:show, :new, :create] do
     resources :goals
   end
 

@@ -21,7 +21,13 @@ class UsersController < ApplicationController
     end
     
     def show
-        @user = current_user
+        if params[:id] == current_user.id
+            binding.pry
+            @user = current_user
+        else
+            # redirect_to user_path(current_user)
+            "placeholder"
+        end
     end
 
     private

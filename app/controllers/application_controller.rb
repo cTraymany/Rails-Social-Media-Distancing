@@ -2,7 +2,9 @@ class ApplicationController < ActionController::Base
     # before_action :redirect_if_logged_in, only: [:index]
     helper_method :current_user
 
-    def index; end
+    def index
+        # binding.pry
+    end
 
     def redirect_if_logged_in
         redirect_to users_path if current_user
