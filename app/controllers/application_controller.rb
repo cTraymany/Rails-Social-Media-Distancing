@@ -1,17 +1,17 @@
 class ApplicationController < ActionController::Base
-    # before_action :redirect_if_logged_in, only: [:index]
-    helper_method :current_user
+    helper_method :current_user, :require_login
 
-    def index
-        # binding.pry
-    end
+    def index;  end
 
     def redirect_if_logged_in
-        redirect_to users_path if current_user
-        # redirect_to users_goals_path if current_user
+        redirect_to user_path(current_user) if current_user
     end
 
     def current_user
         @user = User.find_by(id: session[:user_id])
+    end
+
+    def require_login
+        redirect_to root_path if !current_user
     end
 end

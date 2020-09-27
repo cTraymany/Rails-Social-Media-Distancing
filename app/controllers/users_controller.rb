@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-    # before_action :redirect_if_logged_in
+    before_action :redirect_if_logged_in, only: [:new, :create]
+    before_action :require_login, except: [:new, :create]
     helper_method :current_user
 
     def index
@@ -21,12 +22,10 @@ class UsersController < ApplicationController
     end
     
     def show
-        if params[:id] == current_user.id
-            binding.pry
+        if params[:id].to_i == current_user.id
             @user = current_user
         else
-            # redirect_to user_path(current_user)
-            "placeholder"
+            redirect_to user_path(current_user)
         end
     end
 
