@@ -1,5 +1,9 @@
 <h1>Log In</h1>
 
+<% if @errors %>
+    <%=render partial: "application/errors", locals: {errors: @errors} %>
+<% end %>
+
 <%= form_for :user do |f| %>
     <%= f.label :email %><br>
     <%= f.text_field :email %><br><br>

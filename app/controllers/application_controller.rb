@@ -1,16 +1,12 @@
 class ApplicationController < ActionController::Base
-    before_action :redirect_if_logged_in, only: [:index]
-    helper_method :logged_in?
+    # before_action :redirect_if_logged_in, only: [:index]
+    helper_method :current_user
 
     def index; end
 
-    def logged_in?
-        !!session[:user_id]
-    end
-
     def redirect_if_logged_in
-        redirect_to users_path if logged_in?
-        # redirect_to users_goals_path if logged_in?
+        redirect_to users_path if current_user
+        # redirect_to users_goals_path if current_user
     end
 
     def current_user

@@ -10,6 +10,8 @@ Goal.create(name: 'Get fit', description: 'Exercise at least 30 minutes a day!')
 # goal_id: 1
 Goal.create(name: "Clean", description: "Mop the floors. Vacuum the carpet. Windex the windows. Do laundry.")
 # goal_id: 2
+Goal.create(name: "Celebrate Achievement", description: "I'm on a roll!! Let's give myself a reward!")
+# goal_id 3
 
 User.create(name: 'Clara', email: 'Clara@email.com', password: 'pw')
 # user_id: 1

@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-    
+    # before_action :redirect_if_logged_in
+    helper_method :current_user
+
     def index
         # delete after adding 'users/goals' as index
     end
@@ -12,11 +14,14 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.valid?
             session[:user_id] = @user.id
-            redirect_to users_path
-            # change to redirect to users_goals_path
+            redirect_to user_path(@user)
         else
             render :new
         end
+    end
+    
+    def show
+        @user = current_user
     end
 
     private
