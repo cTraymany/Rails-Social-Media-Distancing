@@ -9,10 +9,8 @@
     <%= f.label :content %><br>
     <%= f.text_area :content %><br><br>
 
-    <%= f.fields_for :goal do |g| %>        
-        <%= g.label :name, "Choose a goal!" %><br>
-        <%= g.collection_select :name, @goals, :id, :name, include_blank: true %><br><br>
-    <% end %>
+    <%= f.label :name, "Choose a goal!" %><br>
+    <%= f.collection_select :goal_id, @goals, :id, :name, include_blank: true %>
 
     <%= f.submit %>
 <% end %>
