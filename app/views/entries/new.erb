@@ -1,6 +1,7 @@
 <h1>New Journey</h1>
 
-<%# render partial: 'form' %>
+<%= render partial: "application/errors", locals: {errors: @entry.errors.full_messages} %>
+<%# render 'form' %>
 
 <%= form_with model: @entry, url: user_entries_url do |f| %>
     <%= f.label :title %><br>
@@ -10,7 +11,7 @@
     <%= f.text_area :content %><br><br>
 
     <%= f.label :name, "Choose a goal!" %><br>
-    <%= f.collection_select :goal_id, @goals, :id, :name, include_blank: true %>
+    <%= f.collection_select :goal_id, @goals, :id, :name, include_blank: true %><br><br>
 
     <%= f.submit %>
 <% end %>

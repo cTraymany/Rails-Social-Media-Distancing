@@ -27,13 +27,15 @@ class EntriesController < ApplicationController
         @entry = current_user.entries.create(entry_params)
         if @entry.save
             redirect_to user_entry_path(current_user, @entry)
+        else
+            render :new
         end
     end
 
     private
 
     def entry_params
-        params.require(:entry).permit(:title, :content, :user_id, :goal_id)
+        params.require(:entry).permit(:title, :content, :user_id,:goal_id)
     end
 
 end
