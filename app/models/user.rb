@@ -5,4 +5,6 @@ class User < ActiveRecord::Base
     
     has_many :entries
     has_many :goals, through: :entries
+
+    accepts_nested_attributes_for :entries, :goals
 end

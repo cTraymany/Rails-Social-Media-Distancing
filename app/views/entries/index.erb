@@ -1,5 +1,8 @@
 <h1>My Journeys:</h1>
+<%= link_to 'New Journey', new_user_entry_path(@user) %><br><br>
 
+<div>
 <% @user.entries.each do |entry| %>
     <li><%= link_to entry.title, user_entry_path(@user, entry) %></li>
 <% end %>
+</div>

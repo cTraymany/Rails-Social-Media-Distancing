@@ -16,4 +16,14 @@ class EntriesController < ApplicationController
         end
     end
 
+    def new
+        @entry = current_user.entries.new
+        binding.pry
+        # @entry.goal.build
+    end
+
+    def create
+
+    end
+
 end
