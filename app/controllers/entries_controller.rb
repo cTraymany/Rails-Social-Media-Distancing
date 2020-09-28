@@ -18,12 +18,22 @@ class EntriesController < ApplicationController
 
     def new
         @entry = current_user.entries.new
-        binding.pry
-        # @entry.goal.build
+        @goal = Goal.new
+
+        @goals = Goal.all
     end
 
     def create
+        @entry = current_user.entries.create(entry_params)
+        if @entry.save
+            redirect_to user_entry_path(current_user, @entry)
+        end
+    end
 
+    private
+
+    def entry_params
+        params.require(:entry).permit(:title, :content, :user_id, :goal[:id])
     end
 
 end
