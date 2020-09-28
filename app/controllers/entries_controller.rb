@@ -17,10 +17,13 @@ class EntriesController < ApplicationController
     end
 
     def new
-        @entry = current_user.entries.new
-        @goal = Goal.new
-
-        @goals = Goal.all
+        if params[:user_id].to_i != current_user.id
+            redirect_to new_user_entry_path(current_user)
+        else
+            @entry = current_user.entries.new
+            @goal = Goal.new
+            @goals = Goal.all
+        end
     end
 
     def create
@@ -31,6 +34,15 @@ class EntriesController < ApplicationController
             render :new
         end
     end
+    
+    # def edit
+    #     @entry = current_user.entries.find_by(id: params[:id])
+    #     @goals = Goal.all
+    # end
+    
+    # def update
+
+    # end
 
     private
 
