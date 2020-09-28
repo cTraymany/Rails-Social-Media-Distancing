@@ -5,7 +5,6 @@ class EntriesController < ApplicationController
         else
             redirect_to user_entries_path(current_user)
         end
-
     end
     
     def show
