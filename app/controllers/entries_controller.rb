@@ -35,10 +35,10 @@ class EntriesController < ApplicationController
         end
     end
     
-    # def edit
-    #     @entry = current_user.entries.find_by(id: params[:id])
-    #     @goals = Goal.all
-    # end
+    def edit
+        @entry = current_user.entries.find_by(id: params[:id])
+        @goals = Goal.all
+    end
     
     # def update
 
