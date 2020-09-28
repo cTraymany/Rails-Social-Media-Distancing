@@ -17,6 +17,7 @@ User.create(name: 'Clara', email: 'Clara@email.com', password: 'pw')
 # user_id: 1
 Entry.create(title: 'Running is hard', content: 'Today I ran 10 miles. Hooray! Today I ran 10 miles. Hooray! Today I ran 10 miles. Hooray! Today I ran 10 miles. Hooray! Today I ran 10 miles. Hooray! Today I ran 10 miles. Hooray! Today I ran 10 miles. Hooray! ', user_id: 1, goal_id: 1)
 Entry.create(title: 'House is So Messy!', content: "Wow, I haven't cleaned in weeks. I should probably do that! Wow, I haven't cleaned in weeks. I should probably do that! Wow, I haven't cleaned in weeks. I should probably do that! Wow, I haven't cleaned in weeks. I should probably do that! ", user_id: 1, goal_id: 2)
+Entry.create(title: 'I Love Me!', content: "I am awesome. I am awesome. I am awesome. I am awesome. I am awesome. I am awesome. I am awesome. I am awesome. I am awesome. I am awesome. I am awesome. I am awesome. I am awesome. I am awesome. I am awesome. I am awesome.", user_id: 1, goal_id: 2)
 
 User.create(name: 'Morticia', email: 'Morticia@email.com', password:'pw')
 # user_id: 2

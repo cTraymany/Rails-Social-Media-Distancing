@@ -1,11 +1,14 @@
 class EntriesController < ApplicationController
     def index
-        @entries = Entry.all
+        @entries = current_user.entries
     end
     
     def show
-        @entry = Entry.find_by(params[:id])
+        # binding.pry
+        @entry = current_user.entries.find_by(id: params[:id])
         @goal = @entry.goal
+
+        
     end
 
 end

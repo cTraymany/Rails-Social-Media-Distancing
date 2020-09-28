@@ -1,0 +1,6 @@
+<h1>My Journeys:</h1>
+
+<% @user.entries.each do |entry| %>
+    <%# binding.pry %>
+    <li><%= link_to entry.title, user_entry_path(@user, entry) %></li>
+<% end %>

@@ -12,9 +12,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :new, :create] do
     resources :goals
+    resources :entries
   end
 
-  resources :entries
-
-  # get '/auth/github', as: 'github_login'
 end
