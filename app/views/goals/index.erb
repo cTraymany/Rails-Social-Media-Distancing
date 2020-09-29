@@ -1,5 +1,5 @@
 <h1>My Goals:</h1>
-
+<%= link_to 'New Goal', new_user_goal_path(current_user) %><br><br>
 <% @goals.uniq.each do |goal| %>
     <li><%= link_to goal.name, user_goal_path(@user, goal) %></li>
 <% end %>

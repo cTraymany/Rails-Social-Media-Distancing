@@ -14,4 +14,23 @@ class GoalsController < ApplicationController
             redirect_to user_goals_path(current_user)
         end
     end
+
+    def new
+        @goal = Goal.new
+    end
+
+    def create
+        @goal = Goal.create(goal_params)
+        if @goal.save
+            redirect_to user_goals_path(current_user)
+        else
+            render :new
+        end
+    end
+
+    private
+
+    def goal_params
+        params.require(:goal).permit(:name, :description)
+    end
 end
