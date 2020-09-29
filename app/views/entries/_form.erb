@@ -5,13 +5,10 @@
     <%= f.label :content %><br>
     <%= f.text_area :content %><br><br>
 
-    <%= f.label :name, "Choose a goal!" %><br>
+    <%= f.label :goal %><br>
 
-    <% if @entry.goal %>
-        <%= f.collection_select :goal_id, @goals, :id, :name, include_blank: true, selected: @entry.goal.id %><br><br>
-    <% else %>
-        <%= f.collection_select :goal_id, @goals, :id, :name, include_blank: true %><br><br>
-    <% end %>
+    <%= f.collection_select :goal_id, @goals, :id, :name,
+        @entry.goal ? { selected: @entry.goal.id } : { include_blank: true } %><br><br>
 
     <%= f.submit %>
 <% end %>
