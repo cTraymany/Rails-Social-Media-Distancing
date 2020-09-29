@@ -22,7 +22,7 @@ class GoalsController < ApplicationController
     def create
         @goal = Goal.create(goal_params)
         if @goal.save
-            redirect_to user_goals_path(current_user)
+            redirect_to user_entries_path(current_user), alert: "Your goal has been saved!"
         else
             render :new
         end

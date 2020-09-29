@@ -1,5 +1,6 @@
 <h1>New Goal</h1>
 <p><em>Goals will be available to all users to chose from!</em></p>
+<p><em>You can select your new goal in your Journeys page.</em></p>
 
 <%= form_with model: @goal, url: user_goals_url(current_user) do |f| %>
     <%= f.label :name %><br>
