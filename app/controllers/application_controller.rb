@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    helper_method :current_user, :require_login
+    helper_method :current_user, :require_login, :correct_user_link, :redirect_if_logged_in
 
     def index;  end
 
@@ -13,5 +13,9 @@ class ApplicationController < ActionController::Base
 
     def require_login
         redirect_to root_path if !current_user
+    end
+
+    def correct_user_link
+        params[:user_id].to_i == current_user.id
     end
 end

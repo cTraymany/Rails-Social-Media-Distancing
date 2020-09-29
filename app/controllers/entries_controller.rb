@@ -1,4 +1,5 @@
 class EntriesController < ApplicationController
+    before_action :require_login
     before_action :set_entry, only: [:show, :edit]
 
     def index
@@ -48,10 +49,6 @@ class EntriesController < ApplicationController
 
     def set_entry
         @entry = current_user.entries.find_by(id: params[:id])
-    end
-
-    def correct_user_link
-        params[:user_id].to_i == current_user.id
     end
 
     def show_my_entries
