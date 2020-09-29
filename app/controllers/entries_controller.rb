@@ -37,7 +37,13 @@ class EntriesController < ApplicationController
     
     def edit
         @entry = current_user.entries.find_by(id: params[:id])
-        @goals = Goal.all
+        if params[:user_id].to_i != current_user.id
+            redirect_to edit_user_entry_path(current_user, @entry)
+        elsif @entry
+            @goals = Goal.all
+        else
+            redirect_to user_entry_path(current_user)
+        end
     end
     
     # def update
