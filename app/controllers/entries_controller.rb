@@ -2,20 +2,20 @@ class EntriesController < ApplicationController
     before_action :set_entry, only: [:show, :edit]
 
     def index
-        redirect_to user_entries_path(current_user) if !correct_link_id
+        my_entries if !correct_user_link
         @user = current_user
     end
     
     def show
-        if @entry && correct_link_id
+        if @entry && correct_user_link
             @goal = @entry.goal
         else
-            redirect_to user_entries_path(current_user)
+            my_entries
         end
     end
 
     def new
-        redirect_to new_user_entry_path(current_user) if !correct_link_id
+        redirect_to new_user_entry_path(current_user) if !correct_user_link
         @entry = current_user.entries.new
         @goal = Goal.new
         @goals = Goal.all
@@ -31,13 +31,8 @@ class EntriesController < ApplicationController
     end
     
     def edit
-        if params[:user_id].to_i != current_user.id
-            redirect_to edit_user_entry_path(current_user, @entry)
-        elsif @entry
-            @goals = Goal.all
-        else
-            redirect_to user_entry_path(current_user)
-        end
+        redirect_to edit_user_entry_path(current_user, @entry) if !correct_user_link
+        @entry ? @goals = Goal.all : my_entries
     end
     
     # def update
@@ -54,8 +49,12 @@ class EntriesController < ApplicationController
         @entry = current_user.entries.find_by(id: params[:id])
     end
 
-    def correct_link_id
+    def correct_user_link
         params[:user_id].to_i == current_user.id
+    end
+
+    def my_entries
+        redirect_to user_entries_path(current_user)
     end
 
 end
