@@ -1,2 +1,2 @@
 <h1>Edit Journey</h1>
-<%= render 'form' %>
+<%= render partial: 'form', locals: {url: user_entry_url(current_user, @entry) } %>

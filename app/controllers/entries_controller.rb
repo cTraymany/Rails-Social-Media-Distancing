@@ -2,7 +2,7 @@ class EntriesController < ApplicationController
     before_action :set_entry, only: [:show, :edit]
 
     def index
-        my_entries if !correct_user_link
+        show_my_entries if !correct_user_link
         @user = current_user
     end
     
@@ -10,14 +10,13 @@ class EntriesController < ApplicationController
         if @entry && correct_user_link
             @goal = @entry.goal
         else
-            my_entries
+            show_my_entries
         end
     end
 
     def new
         redirect_to new_user_entry_path(current_user) if !correct_user_link
         @entry = current_user.entries.new
-        @goal = Goal.new
         @goals = Goal.all
     end
 
@@ -32,12 +31,14 @@ class EntriesController < ApplicationController
     
     def edit
         redirect_to edit_user_entry_path(current_user, @entry) if !correct_user_link
-        @entry ? @goals = Goal.all : my_entries
+        @entry ? @goals = Goal.all : show_my_entries
     end
     
-    # def update
-
-    # end
+    def update
+        entry = current_user.entries.find_by(id: params[:id])
+        entry.update(entry_params)
+        redirect_to user_entry_path(current_user, entry)
+    end
 
     private
 
@@ -53,7 +54,7 @@ class EntriesController < ApplicationController
         params[:user_id].to_i == current_user.id
     end
 
-    def my_entries
+    def show_my_entries
         redirect_to user_entries_path(current_user)
     end
 
