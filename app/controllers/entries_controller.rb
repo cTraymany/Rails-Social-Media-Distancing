@@ -1,4 +1,6 @@
 class EntriesController < ApplicationController
+    before_action :set_entry, only: [:show, :edit]
+
     def index
         if params[:user_id].to_i == current_user.id
             @user = current_user
@@ -8,7 +10,6 @@ class EntriesController < ApplicationController
     end
     
     def show
-        @entry = current_user.entries.find_by(id: params[:id])
         if @entry && params[:user_id].to_i == current_user.id
             @goal = @entry.goal
         else
@@ -36,7 +37,6 @@ class EntriesController < ApplicationController
     end
     
     def edit
-        @entry = current_user.entries.find_by(id: params[:id])
         if params[:user_id].to_i != current_user.id
             redirect_to edit_user_entry_path(current_user, @entry)
         elsif @entry
@@ -54,6 +54,10 @@ class EntriesController < ApplicationController
 
     def entry_params
         params.require(:entry).permit(:title, :content, :user_id,:goal_id)
+    end
+
+    def set_entry
+        @entry = current_user.entries.find_by(id: params[:id])
     end
 
 end
