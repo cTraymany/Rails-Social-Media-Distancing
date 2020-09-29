@@ -2,15 +2,12 @@ class EntriesController < ApplicationController
     before_action :set_entry, only: [:show, :edit]
 
     def index
-        if params[:user_id].to_i == current_user.id
-            @user = current_user
-        else
-            redirect_to user_entries_path(current_user)
-        end
+        redirect_to user_entries_path(current_user) if !correct_link_id
+        @user = current_user
     end
     
     def show
-        if @entry && params[:user_id].to_i == current_user.id
+        if @entry && correct_link_id
             @goal = @entry.goal
         else
             redirect_to user_entries_path(current_user)
@@ -18,13 +15,10 @@ class EntriesController < ApplicationController
     end
 
     def new
-        if params[:user_id].to_i != current_user.id
-            redirect_to new_user_entry_path(current_user)
-        else
-            @entry = current_user.entries.new
-            @goal = Goal.new
-            @goals = Goal.all
-        end
+        redirect_to new_user_entry_path(current_user) if !correct_link_id
+        @entry = current_user.entries.new
+        @goal = Goal.new
+        @goals = Goal.all
     end
 
     def create
@@ -58,6 +52,10 @@ class EntriesController < ApplicationController
 
     def set_entry
         @entry = current_user.entries.find_by(id: params[:id])
+    end
+
+    def correct_link_id
+        params[:user_id].to_i == current_user.id
     end
 
 end
