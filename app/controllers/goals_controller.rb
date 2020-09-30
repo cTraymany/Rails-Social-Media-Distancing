@@ -1,17 +1,19 @@
 class GoalsController < ApplicationController
+    before_action :require_login#, :
+
     def index
-        if params[:user_id].to_i == current_user.id
+        if correct_user_link
             @user = current_user
             @goals = @user.goals
         else
-            redirect_to user_goals_path(current_user)
+            show_my_goals
         end
     end
 
     def show
         @goal = current_user.goals.find_by(id: params[:id])
-        unless @goal && params[:user_id].to_i == current_user.id
-            redirect_to user_goals_path(current_user)
+        unless @goal && correct_user_link
+            show_my_goals
         end
     end
 
@@ -32,5 +34,9 @@ class GoalsController < ApplicationController
 
     def goal_params
         params.require(:goal).permit(:name, :description)
+    end
+
+    def show_my_goals
+        redirect_to user_goals_path(current_user)
     end
 end
