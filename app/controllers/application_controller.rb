@@ -18,4 +18,8 @@ class ApplicationController < ActionController::Base
     def correct_user_link
         params[:user_id].to_i == current_user.id
     end
+
+    def show_welcome_page
+        redirect_to user_path(current_user)
+    end
 end

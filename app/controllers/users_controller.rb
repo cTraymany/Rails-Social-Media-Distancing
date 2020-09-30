@@ -10,7 +10,7 @@ class UsersController < ApplicationController
         @user = User.create(user_params)
         if @user.save
             session[:user_id] = @user.id
-            redirect_to user_path(@user)
+            show_welcome_page
         else
             render :new
         end
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
         if params[:id].to_i == current_user.id
             @user = current_user
         else
-            redirect_to user_path(current_user)
+            show_welcome_page
         end
     end
 
