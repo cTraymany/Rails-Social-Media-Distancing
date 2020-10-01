@@ -4,12 +4,12 @@
 
 <%= form_tag user_entries_path(@user), method: :get do %>
     <label>Search Journeys: </label>
-    <%= text_field_tag :query %>
+    <%= text_field_tag :query, @query %>
 <% end %><br>
 
 <div>
 <% if !@entries.any? %>
-    <p><em>No results found for '<%= @search %>'</em></p>
+    <p><em>No results found for '<%= @query %>'</em></p>
 <% else %>
     <% @entries.each do |entry| %>
         <li><%= link_to entry.title, user_entry_path(@user, entry) %></li>
