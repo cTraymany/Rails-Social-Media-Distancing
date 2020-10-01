@@ -5,6 +5,8 @@ class EntriesController < ApplicationController
     def index
         show_my_entries if !correct_user_link
         @user = current_user
+        @entries = Entry.search(params[:query])
+        @search = params[:query]
     end
     
     def show

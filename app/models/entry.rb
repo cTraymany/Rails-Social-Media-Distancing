@@ -4,11 +4,11 @@ class Entry < ActiveRecord::Base
 
     validates_presence_of :title, :content
 
-    def self.search(entry_nme)
-        if !entry_name.strip.blank?
-          Entry.where("name LIKE ?", "%#{entry_name}%")
-        else
-          self.all
-        end
-      end
+    def self.search(entry_title)
+		if !entry_title.blank?
+			Entry.where("title LIKE ?", "%#{entry_title}%")
+		else
+			self.all
+		end
+    end
 end
