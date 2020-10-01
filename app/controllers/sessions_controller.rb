@@ -22,7 +22,6 @@ class SessionsController < ApplicationController
     def google_login
         @user = User.find_or_create_by(email: auth_hash[:email]) do |u|
             u.password = SecureRandom.hex
-            binding.pry
         end
 
         session[:user_id] = @user.id
