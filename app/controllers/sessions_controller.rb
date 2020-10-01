@@ -19,4 +19,8 @@ class SessionsController < ApplicationController
         redirect_to root_path
     end
 
+    def github_login
+        
+    end
+
 end

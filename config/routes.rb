@@ -15,4 +15,6 @@ Rails.application.routes.draw do
     resources :entries
   end
 
+  get "/auth/github/callback", to: "sessions#github_login"
+
 end

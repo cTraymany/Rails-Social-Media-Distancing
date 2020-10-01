@@ -17,7 +17,7 @@
         <span><%= link_to "Home", root_path %></span>
         <span><%= link_to "Sign Up", signup_path %></span>
         <span><%= link_to "Log In", login_path %></span>
-        <span><%# link_to "Sign in with Github", '/auth/github' %></span>
+        <span><%= link_to "Continue with Github", '/auth/github' %></span>
       <% else %>
         <span><%= link_to "Home", user_path(current_user) %></span>
         <span><%= link_to "Journeys", user_entries_path(current_user) %></span>
