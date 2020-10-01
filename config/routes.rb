@@ -15,6 +15,6 @@ Rails.application.routes.draw do
     resources :entries
   end
 
-  get "/auth/github/callback", to: "sessions#github_login"
+  get "/auth/google_oauth2/callback", to: "sessions#google_login"
 
 end
