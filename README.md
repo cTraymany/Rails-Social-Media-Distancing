@@ -1,6 +1,5 @@
 # Rails Social Media Distancing
-
-This Rails web app allows users to break unhealthy social media habits by focusing on themselves.
+This Rails web app allows users to break unhealthy social media habits through creating goals that focus on themselves.
 
 
 ## Getting Started
@@ -10,7 +9,6 @@ This app is run with Ruby. Please have Ruby installed before beginning.
 Fork and clone this repository onto your terminal.
 
 ### Installing
-    $ git clone git@github.com:cTraymany/Rails-Social-Media-Distancing.git
     $ bundle install
     $ rake db:migrate
     $ rake db:seed <!-- (if developer) -->

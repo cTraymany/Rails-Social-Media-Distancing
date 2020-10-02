@@ -20,10 +20,12 @@ class SessionsController < ApplicationController
     end
 
     def google_login
+        # binding.pry
         @user = User.find_or_create_by(email: auth_hash[:email]) do |u|
             u.password = SecureRandom.hex
+            u.name = auth_hash[:first_name]
         end
-
+        
         session[:user_id] = @user.id
         redirect_to user_path(current_user)
     end
