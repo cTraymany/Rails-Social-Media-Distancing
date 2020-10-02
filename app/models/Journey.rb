@@ -4,13 +4,6 @@ class Journey < ActiveRecord::Base
 
     validates_presence_of :title, :content, :goal
 
-    scope :name, -> (query) { where("title LIKE ?", query) }
-    
-    # def self.search(journey_title)
-    #   if !journey_title.blank?
-    #     Journey.where("title LIKE ?", "%#{journey_title}%")
-    #   else
-    #     self.all
-    #   end
-    # end
+    scope :title_search, -> (user_id, query) { where("user_id=?", user_id).
+                                          where("title LIKE ?", "%#{query}%") }
 end

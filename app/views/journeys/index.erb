@@ -7,8 +7,8 @@
 <% end %><br>
 
 <div>
-<% if !@journeys.any? %>
-    <p><em>No results found for '<%= @query %>'</em></p>
+<% if @journeys.empty? %>
+    <p><em>No results found for '<%= @query %>' </p></em>
 <% else %>
     <% @journeys.each do |journey| %>
         <li><%= link_to journey.title, user_journey_path(@user, journey) %></li>

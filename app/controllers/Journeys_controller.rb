@@ -5,8 +5,14 @@ class JourneysController < ApplicationController
     def index
         show_my_journeys if !correct_user_link
         @user = current_user
-        @journeys = @user.journeys.search(params[:query])
         @query = params[:query]
+
+        if !@query.blank?
+            @journeys = Journey.title_search(@user.id, @query)
+        else
+            @journeys = current_user.journeys
+        end
+
     end
     
     def show
