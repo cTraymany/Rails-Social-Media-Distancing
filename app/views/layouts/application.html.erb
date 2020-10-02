@@ -20,7 +20,7 @@
         <span><%= link_to "Continue with Google", '/auth/google_oauth2' %></span>
       <% else %>
         <span><%= link_to "Home", user_path(current_user) %></span>
-        <span><%= link_to "Journeys", user_entries_path(current_user) %></span>
+        <span><%= link_to "Journeys", user_journeys_path(current_user) %></span>
         <span><%= link_to "Goals", user_goals_path(current_user) %></span>
         <span><%= link_to "Log Out", logout_path, method: :post %></span>
       <% end %>

@@ -15,11 +15,11 @@ Goal.create(name: "Celebrate Achievement", description: "I'm on a roll!! Let's g
 
 User.create(name: 'Clara', email: 'Clara@email.com', password: 'pw')
 # user_id: 1
-Entry.create(title: 'Running is hard', content: 'Today I ran 10 miles. Hooray! Today I ran 10 miles. Hooray! Today I ran 10 miles. Hooray! Today I ran 10 miles. Hooray! Today I ran 10 miles. Hooray! Today I ran 10 miles. Hooray! Today I ran 10 miles. Hooray! ', user_id: 1, goal_id: 1)
-Entry.create(title: 'House is So Messy!', content: "Wow, I haven't cleaned in weeks. I should probably do that! Wow, I haven't cleaned in weeks. I should probably do that! Wow, I haven't cleaned in weeks. I should probably do that! Wow, I haven't cleaned in weeks. I should probably do that! ", user_id: 1, goal_id: 2)
-Entry.create(title: 'I Love Me!', content: "I am awesome. I am awesome. I am awesome. I am awesome. I am awesome. I am awesome. I am awesome. I am awesome. I am awesome. I am awesome. I am awesome. I am awesome. I am awesome. I am awesome. I am awesome. I am awesome.", user_id: 1, goal_id: 2)
+Journey.create(title: 'Running is hard', content: 'Today I ran 10 miles. Hooray! Today I ran 10 miles. Hooray! Today I ran 10 miles. Hooray! Today I ran 10 miles. Hooray! Today I ran 10 miles. Hooray! Today I ran 10 miles. Hooray! Today I ran 10 miles. Hooray! ', user_id: 1, goal_id: 1)
+Journey.create(title: 'House is So Messy!', content: "Wow, I haven't cleaned in weeks. I should probably do that! Wow, I haven't cleaned in weeks. I should probably do that! Wow, I haven't cleaned in weeks. I should probably do that! Wow, I haven't cleaned in weeks. I should probably do that! ", user_id: 1, goal_id: 2)
+Journey.create(title: 'I Love Me!', content: "I am awesome. I am awesome. I am awesome. I am awesome. I am awesome. I am awesome. I am awesome. I am awesome. I am awesome. I am awesome. I am awesome. I am awesome. I am awesome. I am awesome. I am awesome. I am awesome.", user_id: 1, goal_id: 2)
 
 User.create(name: 'Morticia', email: 'Morticia@email.com', password:'pw')
 # user_id: 2
-Entry.create(title: "New Year's Resolution!", content: "New year, new me! Let's get that bikini body! New year, new me! Let's get that bikini body! New year, new me! Let's get that bikini body! New year, new me! Let's get that bikini body! New year, new me! Let's get that bikini body!", user_id: 2, goal_id: 1)
-Entry.create(title: "Broke My New Year's Resolution", content: "Last night was a rager. Went ham on those canapés. Gotta clean the house now... Last night was a rager. Went ham on those canapés. Gotta clean the house now... Last night was a rager. Went ham on those canapés. Gotta clean the house now...", user_id: 2, goal_id: 2)
+Journey.create(title: "New Year's Resolution!", content: "New year, new me! Let's get that bikini body! New year, new me! Let's get that bikini body! New year, new me! Let's get that bikini body! New year, new me! Let's get that bikini body! New year, new me! Let's get that bikini body!", user_id: 2, goal_id: 1)
+Journey.create(title: "Broke My New Year's Resolution", content: "Last night was a rager. Went ham on those canapés. Gotta clean the house now... Last night was a rager. Went ham on those canapés. Gotta clean the house now... Last night was a rager. Went ham on those canapés. Gotta clean the house now...", user_id: 2, goal_id: 2)

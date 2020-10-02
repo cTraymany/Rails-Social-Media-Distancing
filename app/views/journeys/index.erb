@@ -1,0 +1,17 @@
+<h1>My Journeys:</h1>
+<%= link_to 'New Journey', new_user_journey_path(@user) %><br><br>
+
+<%= form_tag user_journeys_path(@user), method: :get do %>
+    <label>Search Journeys: </label>
+    <%= text_field_tag :query, @query %>
+<% end %><br>
+
+<div>
+<% if !@journeys.any? %>
+    <p><em>No results found for '<%= @query %>'</em></p>
+<% else %>
+    <% @journeys.each do |journey| %>
+        <li><%= link_to journey.title, user_journey_path(@user, journey) %></li>
+    <% end %>
+<% end %>
+</div>

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :new, :create] do
     resources :goals, only: [:index, :show, :new, :create]
-    resources :entries
+    resources :journeys
   end
 
   get "/auth/google_oauth2/callback", to: "sessions#google_login"

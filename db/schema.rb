@@ -12,16 +12,16 @@
 
 ActiveRecord::Schema.define(version: 2020_09_26_140116) do
 
-  create_table "entries", force: :cascade do |t|
+  create_table "goals", force: :cascade do |t|
+    t.string "description"
+    t.string "name"
+  end
+
+  create_table "journeys", force: :cascade do |t|
     t.string "title"
     t.text "content"
     t.integer "user_id"
     t.integer "goal_id"
-  end
-
-  create_table "goals", force: :cascade do |t|
-    t.string "description"
-    t.string "name"
   end
 
   create_table "users", force: :cascade do |t|

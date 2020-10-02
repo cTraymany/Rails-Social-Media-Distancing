@@ -1,4 +1,4 @@
 class Goal < ActiveRecord::Base
-    has_many :entries
-    has_many :users, through: :entries
+    has_many :journeys
+    has_many :users, through: :journeys
 end

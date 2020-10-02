@@ -3,8 +3,8 @@ class User < ActiveRecord::Base
     validates :name, :password, presence: true
     validates :email, presence: true, uniqueness: true
     
-    has_many :entries
-    has_many :goals, through: :entries
+    has_many :journeys
+    has_many :goals, through: :journeys
 
-    accepts_nested_attributes_for :entries, :goals
+    accepts_nested_attributes_for :journeys, :goals
 end
