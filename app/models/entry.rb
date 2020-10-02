@@ -2,7 +2,7 @@ class Entry < ActiveRecord::Base
     belongs_to :user
     belongs_to :goal
 
-    validates_presence_of :title, :content
+    validates_presence_of :title, :content, :goal
 
     def self.search(entry_title)
 		if !entry_title.blank?

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   post 'logout' => 'sessions#destroy'
 
   resources :users, only: [:show, :new, :create] do
-    resources :goals
+    resources :goals, only: [:index, :show, :new, :create]
     resources :entries
   end
 

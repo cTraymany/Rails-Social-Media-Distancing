@@ -6,4 +6,6 @@
 
 <h2>Goal:</h2>
 
-<%= @goal.name %> - <%= @goal.description %>
+<%= @goal.name %> - <%= @goal.description %><br><br>
+
+<%= button_to "Delete", user_entry_path(@entry), method: :delete %>
