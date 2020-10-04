@@ -1,4 +1,4 @@
-<%= form_for ([@journey.user, @journey]) do |f| %>
+<%= form_with model: ([@journey.user, @journey]), local: true do |f| %>
     <%= f.label :title %><br>
     <%= f.text_field :title %><br><br>
 
