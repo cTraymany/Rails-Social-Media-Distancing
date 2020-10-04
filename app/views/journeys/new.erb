@@ -1,4 +1,6 @@
 <h1>New Journey</h1>
+<p><em>Can't find the goal you're looking for?</em></p>
+<p><em>Create one in your <%= link_to "Goals page", new_user_goal_path(current_user) %>.</em></p>
 
 <%= render partial: 'application/errors', locals: {errors: @journey.errors.full_messages} %>
 

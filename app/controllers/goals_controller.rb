@@ -1,5 +1,5 @@
 class GoalsController < ApplicationController
-    before_action :require_login#, :
+    before_action :require_login
 
     def index
         if correct_user_link
