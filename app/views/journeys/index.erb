@@ -2,8 +2,8 @@
 <%= link_to 'New Journey', new_user_journey_path(@user) %><br><br>
 
 <%= form_tag user_journeys_path(@user), method: :get do %>
-    <label>Search Journeys: </label>
     <%= text_field_tag :query, @query %>
+    <%= submit_tag "Search"%>
 <% end %><br>
 
 <div>
