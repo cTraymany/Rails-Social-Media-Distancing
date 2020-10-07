@@ -4,6 +4,8 @@ class Journey < ActiveRecord::Base
 
     validates_presence_of :title, :content, :goal
 
-    scope :title_search, -> (user_id, query) { where("user_id=?", user_id).
-                                          where("title LIKE ?", "%#{query}%") }
+    scope :title_search, -> (user_id, query) {
+        where("user_id=?", user_id).
+        where("title LIKE ?", "%#{query}%")
+    }
 end
