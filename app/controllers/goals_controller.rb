@@ -31,12 +31,12 @@ class GoalsController < ApplicationController
     end
 
     private
+    
+    def show_my_goals
+        redirect_to user_goals_path(current_user)
+    end
 
     def goal_params
         params.require(:goal).permit(:name, :description)
-    end
-
-    def show_my_goals
-        redirect_to user_goals_path(current_user)
     end
 end

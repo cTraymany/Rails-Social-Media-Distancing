@@ -2,7 +2,9 @@
 <p><em>Goals will be available to all users to chose from.</em></p>
 <p><em>You can select your new goal in your <%= link_to "Journeys page", user_journeys_path(current_user) %>.</em></p>
 
-<%= form_with model: @goal, url: user_goals_url(current_user) do |f| %>
+<%= render partial: 'application/errors', locals: {errors: @goal.errors.full_messages} %>
+
+<%= form_with model: @goal, url: user_goals_url(current_user), local: true do |f| %>
     <%= f.label :name %><br>
     <%= f.text_field :name %><br><br>
 
