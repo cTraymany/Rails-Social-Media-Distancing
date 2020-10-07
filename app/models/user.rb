@@ -5,6 +5,4 @@ class User < ActiveRecord::Base
     
     has_many :journeys
     has_many :goals, through: :journeys
-
-    accepts_nested_attributes_for :journeys, :goals
 end
