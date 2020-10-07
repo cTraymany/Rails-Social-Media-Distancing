@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    helper_method :current_user, :require_login, :correct_user_link, :redirect_if_logged_in
+    helper_method :current_user
 
     def index;  end
 
