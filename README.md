@@ -1,10 +1,10 @@
 # Rails Social Media Distancing
-This Rails web app allows users to break unhealthy social media habits through creating goals that focus on themselves.
+This Ruby on Rails web app allows users to break unhealthy social media habits through creating goals that focus on themselves. Register safely with Bcrypt encrypted passwords and start journaling your aspirations! Or sign in with your Google account for a faster experience provided by omniauth. Journeys and goals are stored in a SQLite3 database.
 
 
 ## Getting Started
 ### Prerequisites
-This app is run with Ruby. Please have Ruby installed before beginning.
+This app is run with Ruby on Rails. Please have Ruby and Rails installed before beginning.
 
 Fork and clone this repository onto your terminal.
 
