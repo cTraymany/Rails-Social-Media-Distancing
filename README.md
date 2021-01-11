@@ -1,4 +1,4 @@
-# Rails Social Media Distancing
+# Rails Social Media Distancing Diary
 This Ruby on Rails web app allows users to break unhealthy social media habits through creating goals that focus on themselves. Register safely with Bcrypt encrypted passwords and start journaling your aspirations! Or sign in with your Google account for a faster experience provided by omniauth. Journeys and goals are stored in a SQLite3 database.
 
 
