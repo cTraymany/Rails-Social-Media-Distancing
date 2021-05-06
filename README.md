@@ -11,7 +11,6 @@ Fork and clone this repository onto your terminal.
 ### Installing
     $ bundle install
     $ rake db:migrate
-    $ rake db:seed <!-- (if testing) -->
     $ rails s
 
     Navigate to http://localhost:3000 in your browser.
