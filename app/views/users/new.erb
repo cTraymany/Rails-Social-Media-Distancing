@@ -1,19 +1,28 @@
-<h1>Sign Up</h1>
+<div class="session">
+    <div class="session__content">
+        <div class="session__left">
+            &nbsp;
+        </div>
+        <div class="session__right">
+            <h1 class="session__heading">Sign Up</h1>
 
-<%=render partial: "application/errors", locals: {errors: @user.errors.full_messages} %>
+            <%#render partial: "application/errors", locals: {errors: @user.errors.full_messages} %>
 
-<%= form_with model: @user, url: '/signup', local: true do |f| %>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %><br><br>
+            <%= form_with model: @user, url: '/signup', local: true, class: 'signup__form' do |f| %>
+                <%= f.label :name %><br>
+                <%= f.text_field :name %><br><br>
 
-    <%= f.label :email %><br>
-    <%= f.text_field :email %><br><br>
+                <%= f.label :email %><br>
+                <%= f.text_field :email %><br><br>
 
-    <%= f.label :password %><br>
-    <%= f.password_field :password %><br><br>
+                <%= f.label :password %><br>
+                <%= f.password_field :password %><br><br>
 
-    <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation %><br><br>
+                <%= f.label :confirm_password %><br>
+                <%= f.password_field :password_confirmation %><br><br>
 
-    <%= f.submit 'Sign Up' %>
-<% end %>
+                <%= f.submit 'Sign Up' %>
+            <% end %>
+        </div>
+    </div>
+</div>

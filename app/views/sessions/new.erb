@@ -1,15 +1,25 @@
-<h1>Log In</h1>
+<div class="session">
+    <div class="session__content">
+        <div class="session__left">
+            &nbsp;
+        </div>
+        <div class="session__right">
+            <h1 class="session__heading">Log In</h1>
 
-<% if @errors %>
-    <%= render partial: "application/errors", locals: {errors: @errors} %>
-<% end %>
+            <%= form_for :user do |f| %>
+                <%= f.label :email %><br>
+                <%= f.text_field :email, value: 'Clara@email.com' %><br><br>
 
-<%= form_for :user do |f| %>
-    <%= f.label :email %><br>
-    <%= f.text_field :email %><br><br>
+                <%= f.label :password %><br>
+                <%= f.password_field :password, value: 'pw' %><br><br>
 
-    <%= f.label :password %><br>
-    <%= f.password_field :password %><br><br>
+                <% if @errors %>
+                    <%= render partial: "application/errors", locals: {errors: @errors} %>
+                <% end %>
+                
+                <%= f.submit 'Log In' %>
 
-    <%= f.submit 'Log In' %>
-<% end %>
+            <% end %>
+        </div>
+    </div>
+</div>

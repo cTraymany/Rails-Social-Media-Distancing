@@ -1,6 +1,8 @@
-<h1>Edit Journey</h1>
+<div class="new-entries">
 
-<%= render partial: 'application/errors', locals: {errors: @journey.errors.full_messages} %>
+    <h1 class="heading">Edit Journey</h1>
 
+    <%= render partial: 'application/errors', locals: {errors: @journey.errors.full_messages} %>
 
-<%= render partial: 'form', locals: {url: user_journey_url(current_user, @journey) } %>
+    <%= render partial: 'form', locals: {url: user_journey_url(current_user, @journey) } %>
+</div>

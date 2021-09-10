@@ -12,29 +12,27 @@
   </head>
 
   <body>
-    <header>
+    <div class="navigation__container">
       <nav class="navigation">
         <ul class="navigation__list">
           <% if !current_user %>
-            <li><%= link_to "Home", root_path %></li>
-            <li><%= link_to "Sign Up", signup_path %></li>
-            <li><%= link_to "Log In", login_path %></li>
-            <li><%= link_to "Continue with Google", '/auth/google_oauth2' %></li>
+            <li class="navigation__item"><%= link_to "Home", root_path, class: 'navigation__link' %></li>
+            <li class="navigation__item"><%= link_to "Sign Up", signup_path, class: 'navigation__link' %></li>
+            <li class="navigation__item"><%= link_to "Log In", login_path, class: 'navigation__link' %></li>
+            <%#li class="navigation__item"><%= link_to "Continue with Google", '/auth/google_oauth2', class: 'navigation__link' %></%li>
           <% else %>
-            <li><%= link_to "Home", user_path(current_user) %></li>
-            <li><%= link_to "Goals", user_goals_path(current_user) %></li>
-            <li><%= link_to "Journeys", user_journeys_path(current_user) %></li>
-            <li><%= link_to "Log Out", logout_path, method: :post %></li>
+            <li class="navigation__item"><%= link_to "Home", user_path(current_user), class: 'navigation__link' %></li>
+            <li class="navigation__item"><%= link_to "Goals", user_goals_path(current_user), class: 'navigation__link' %></li>
+            <li class="navigation__item"><%= link_to "Journeys", user_journeys_path(current_user), class: 'navigation__link' %></li>
+            <li class="navigation__item"><%= button_to "Log Out", logout_path, class: 'navigation__link', id: 'logout__button', method: :delete %></li>
+            <%# link_to was having issues (no route matches GET logout) %>
           <% end %>
         </ul>
       </nav>
-    </header>
+    </div>
     
     <%= yield %>
 
-    <footer>
-      <br><small>&copy; 2020 RailsSocialMediaDistancing</small>
-    </footer>
   </body>
 
 </html>

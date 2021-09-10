@@ -1,11 +1,12 @@
-<h1><%= @journey.title %></h1>
+<div class="entry">
+    <h1 class="heading"><%= @journey.title %></h1>
 
-<%= link_to "Edit Journey", edit_user_journey_path(@user, @journey) %><br><br>
+    <%= link_to "Edit Journey", edit_user_journey_path(@user, @journey) %><br><br>
+    <text><%= @journey.content %></text>
 
-<text><%= @journey.content %></text>
+    <h2 class="heading-small">Goal:</h2>
 
-<h2>Goal:</h2>
+    <%= @goal.name %> - <%= @goal.description %>
 
-<%= @goal.name %> - <%= @goal.description %><br><br>
-
-<%= button_to "Delete", user_journey_path(@journey), method: :delete %>
+    <%= button_to "Delete", user_journey_path(@journey), method: :delete %>
+</div>

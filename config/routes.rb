@@ -8,7 +8,8 @@ Rails.application.routes.draw do
 
   post 'login' => 'sessions#create'
   post 'signup' => 'users#create'
-  post 'logout' => 'sessions#destroy'
+  
+  delete 'logout' => 'sessions#destroy'
 
   resources :users, only: [:show, :new, :create] do
     resources :goals, only: [:index, :show, :new, :create]
@@ -16,7 +17,5 @@ Rails.application.routes.draw do
   end
 
   get "/auth/google_oauth2/callback", to: "sessions#google_login"
-
-  
 
 end

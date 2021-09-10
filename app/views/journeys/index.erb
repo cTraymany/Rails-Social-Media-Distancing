@@ -1,21 +1,23 @@
-<h1>My Journeys:</h1>
-<%= link_to 'New Journey', new_user_journey_path(@user) %><br><br>
-
-<%= form_tag user_journeys_path(@user), method: :get do %>
-    <%= text_field_tag :query, @query %>
-    <%= submit_tag "Search"%>
-<% end %><br>
-
-<div>
-<% if @journeys.empty? %>
-    <p><em>No results found for '<%= @query %>' </p></em>
-<% else %>
-    <% @journeys.each do |journey| %>
-        <li><%= link_to journey.title, user_journey_path(@user, journey) %></li>
-    <% end %>
-<% end %>
+<div class="entries">
+    <div class="entries__left">
+        <h1 class="heading">My Journeys</h1>
+        <%= form_tag user_journeys_path(@user), class: 'entry__form', method: :get do %>
+            <%= text_field_tag :query, @query, class: 'entry__searchbar' %>
+            <%= submit_tag "Search",  id: 'entry__submit'%>
+        <% end %><br>
+        <span><%= link_to 'New Journey', new_user_journey_path(@user) %>&larrhk;</span>
+    </div>
+    <div class="entries__right">
+        <div class="entries__list">
+            <% if @journeys.empty? %>
+                <p><em>No results found</p></em>
+            <% else %>
+                <ul class="entries__list">
+                <% @journeys.each do |journey| %>
+                    <li class="entries__item"><%= link_to journey.title, user_journey_path(@user, journey) %></li>
+                <% end %>
+                </ul>
+            <% end %>
+        </div>
+    </div>
 </div>
-
-
-
-

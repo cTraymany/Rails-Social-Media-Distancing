@@ -1,15 +1,17 @@
-<h1>New Goal</h1>
-<p><em>Goals will be available to all users to chose from.</em></p>
-<p><em>You can select your new goal in your <%= link_to "Journeys page", user_journeys_path(current_user) %>.</em></p>
+<div class="new-entries">
+    <h1 class="heading">New Goal</h1>
+    <p><em>Goals will be available to all users to chose from.</em></p><br>
+    <p><em>You can select your new goal on your <%= link_to "Journeys page", user_journeys_path(current_user) %>.</em></p>
 
-<%= render partial: 'application/errors', locals: {errors: @goal.errors.full_messages} %>
+    <%= form_with model: @goal, url: user_goals_url(current_user), class: 'new-entries__form', local: true do |f| %>
+        <%= f.label :name %><br>
+        <%= f.text_field :name %><br><br>
 
-<%= form_with model: @goal, url: user_goals_url(current_user), local: true do |f| %>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %><br><br>
+        <%= f.label :description %><br>
+        <%= f.text_area :description %><br><br>
 
-    <%= f.label :description %><br>
-    <%= f.text_area :description %><br><br>
+        <%= render partial: 'application/errors', locals: {errors: @goal.errors.full_messages} %>
 
-    <%= f.submit %>
-<% end %>
+        <%= f.submit %>
+    <% end %>
+</div>
