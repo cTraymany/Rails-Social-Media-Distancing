@@ -29,7 +29,7 @@ module.exports = function(api) {
         '@babel/preset-env',
         {
           forceAllTransforms: true,
-          useBuiltIns: 'false',
+          useBuiltIns: 'journey',
           corejs: 3,
           modules: false,
           exclude: ['transform-typeof-symbol']
